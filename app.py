@@ -7,16 +7,16 @@ import pandas as pd
 import time
 import random
 
-data = pd.read_csv('/Users/mayank/Desktop/DataScience/steamlit/machine_learning /weather.csv')
+data = pd.read_csv('weather.csv')
 lb = LabelEncoder()
 data['Rain'] = lb.fit_transform(data['Rain'])
-x = data[['Temperature',	'Humidity',	'Cloud_Cover','Pressure']]
+x = data[['Temperature', 'Humidity',	'Cloud_Cover','Pressure']]
 y = data['Rain']
 train_x, test_x, train_y, test_y = train_test_split(x, y, test_size=0.2, random_state=42)
 Lg = LogisticRegression()
 Lg.fit(train_x, train_y)
 st.title('Weather Prediction')
-image1 = Image.open("/Users/mayank/Desktop/DataScience/steamlit/machine_learning /weather.jpeg")
+image1 = Image.open("weather.jpeg")
 
 
 image, text = st.columns([2, 1])
